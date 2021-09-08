@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/transliterator-plus/static/css/main.cea22bf0.chunk.css",
+    "main.js": "/transliterator-plus/static/js/main.963ad45c.chunk.js",
+    "main.js.map": "/transliterator-plus/static/js/main.963ad45c.chunk.js.map",
+    "runtime-main.js": "/transliterator-plus/static/js/runtime-main.71b0bdae.js",
+    "runtime-main.js.map": "/transliterator-plus/static/js/runtime-main.71b0bdae.js.map",
+    "static/css/2.f2512455.chunk.css": "/transliterator-plus/static/css/2.f2512455.chunk.css",
+    "static/js/2.2a2a12ee.chunk.js": "/transliterator-plus/static/js/2.2a2a12ee.chunk.js",
+    "static/js/2.2a2a12ee.chunk.js.map": "/transliterator-plus/static/js/2.2a2a12ee.chunk.js.map",
+    "static/js/3.1e624fe1.chunk.js": "/transliterator-plus/static/js/3.1e624fe1.chunk.js",
+    "static/js/3.1e624fe1.chunk.js.map": "/transliterator-plus/static/js/3.1e624fe1.chunk.js.map",
+    "index.html": "/transliterator-plus/index.html",
+    "static/css/2.f2512455.chunk.css.map": "/transliterator-plus/static/css/2.f2512455.chunk.css.map",
+    "static/css/main.cea22bf0.chunk.css.map": "/transliterator-plus/static/css/main.cea22bf0.chunk.css.map",
+    "static/js/2.2a2a12ee.chunk.js.LICENSE.txt": "/transliterator-plus/static/js/2.2a2a12ee.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.71b0bdae.js",
+    "static/css/2.f2512455.chunk.css",
+    "static/js/2.2a2a12ee.chunk.js",
+    "static/css/main.cea22bf0.chunk.css",
+    "static/js/main.963ad45c.chunk.js"
+  ]
+}
