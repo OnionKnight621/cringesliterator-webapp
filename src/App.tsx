@@ -1,40 +1,30 @@
 import React, { useState } from "react";
 
 import "./App.css";
-import transliterate from "./utils/transliterator";
-import { LANGUAGES, MODES } from "./constants";
+import ModeSwitcher from "./components/modeSwitcher";
+import Header from "./components/header";
 
-const Header = ({ language, mode, handleLangChange }) => {
-  return (
-    <h1>
-      {language === LANGUAGES.RUS ? (
-        <span
-          className="language"
-          onClick={() => handleLangChange(LANGUAGES.ENG)}
-        >
-          Ru
-        </span>
-      ) : (
-        <span
-          className="language"
-          onClick={() => handleLangChange(LANGUAGES.RUS)}
-        >
-          Eng
-        </span>
-      )}{" "}
-      to B
-    </h1>
-  );
-};
+import reverser from "./utils/reverser";
+import transliterate from "./utils/transliterator";
+import { LANGUAGES, MODES, REVERSER_MODES } from "./constants";
 
 const App = () => {
   const [language, setLanguage] = useState(LANGUAGES.RUS);
   const [mode, setMode] = useState(MODES.TRANSLITERATOR);
+  const [reverserMode, setReverserMode] = useState(REVERSER_MODES.WORD);
   const [inputData, setInputData] = useState("");
   const [outputData, setOutputData] = useState("");
 
-  const handletransliterateClick = () => {
-    const processedData = transliterate(inputData, language);
+  const handleActionClick = () => {
+    let processedData: string;
+
+    if (mode === MODES.TRANSLITERATOR) {
+      processedData = transliterate(inputData, language);
+    }
+    if (mode === MODES.REVERSER) {
+      processedData = reverser(inputData, reverserMode);
+    }
+
     navigator.clipboard.writeText(processedData);
     setOutputData(processedData);
   };
@@ -49,11 +39,20 @@ const App = () => {
     setLanguage(value);
   };
 
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handletransliterateClick();
+  const handleModeChange = (mode: string) => {
+    setMode(mode);
+    console.log(mode);
+  };
+
+  const handleReverserModeChange = (mode: string) => {
+    setReverserMode(mode);
+  };
+
+  const handleKeyPress = (e: any) => {
+    if (e.key === "Enter" || e.key === " ") {
+      handleActionClick();
     }
-  }
+  };
 
   return (
     <main className="container">
@@ -62,8 +61,11 @@ const App = () => {
           <Header
             language={language}
             mode={mode}
+            reverserMode={reverserMode}
+            handleReverserModeChange={handleReverserModeChange}
             handleLangChange={handleLangChange}
           />
+          <ModeSwitcher mode={mode} handleModeChange={handleModeChange} />
         </header>
 
         <textarea
@@ -78,7 +80,7 @@ const App = () => {
           type="button"
           className="btn btn-secondary"
           id="transliterator-btn"
-          onClick={handletransliterateClick}
+          onClick={handleActionClick}
         >
           Transliterate
         </button>

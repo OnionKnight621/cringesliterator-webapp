@@ -1,24 +1,27 @@
 .language,
 .transliteration {
-    border: solid black 2px;
-    border-radius: 8px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  border: solid black 2px;
+  padding: 1rem;
+  border-radius: 8px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .language:hover {
-    border: solid blue 2px;
-    color: blue;
+  border: solid blue 2px;
+  color: blue;
 }
 
 body {
-    background-color: moccasin;
+  background-color: moccasin;
 }
 
 header {
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
