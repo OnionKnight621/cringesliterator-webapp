@@ -1,15 +1,15 @@
-import { ENG, ENG_B, RUS, RUS_B, LANGUAGES } from "../constants";
+import { LAT, LAT_B, CYR, CYR_B, LANGUAGES } from "../constants";
 
 const transliterate = (text: string, lang: string) => {
   let fromLang: string[];
   let toLang: string[];
 
-  if (lang === LANGUAGES.ENG) {
-    fromLang = ENG;
-    toLang = ENG_B;
+  if (lang === LANGUAGES.LAT) {
+    fromLang = LAT;
+    toLang = LAT_B;
   } else {
-    fromLang = RUS;
-    toLang = RUS_B;
+    fromLang = CYR;
+    toLang = CYR_B;
   }
 
   for (let x = 0; x < fromLang.length; x++) {

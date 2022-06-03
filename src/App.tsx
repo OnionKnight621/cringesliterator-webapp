@@ -9,7 +9,7 @@ import transliterate from "./utils/transliterator";
 import { LANGUAGES, MODES, REVERSER_MODES } from "./constants";
 
 const App = () => {
-  const [language, setLanguage] = useState(LANGUAGES.RUS);
+  const [language, setLanguage] = useState(LANGUAGES.CYR);
   const [mode, setMode] = useState(MODES.TRANSLITERATOR);
   const [reverserMode, setReverserMode] = useState(REVERSER_MODES.WORD);
   const [inputData, setInputData] = useState("");

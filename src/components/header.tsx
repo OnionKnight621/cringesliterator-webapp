@@ -32,19 +32,19 @@ const Header = ({
 
   return (
     <h1>
-      {language === LANGUAGES.RUS ? (
+      {language === LANGUAGES.CYR ? (
         <span
           className="language"
-          onClick={() => handleLangChange(LANGUAGES.ENG)}
+          onClick={() => handleLangChange(LANGUAGES.LAT)}
         >
-          Ru
+          {LANGUAGES.CYR}
         </span>
       ) : (
         <span
           className="language"
-          onClick={() => handleLangChange(LANGUAGES.RUS)}
+          onClick={() => handleLangChange(LANGUAGES.CYR)}
         >
-          Eng
+          {LANGUAGES.LAT}
         </span>
       )}{" "}
       to B
