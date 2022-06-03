@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/transliterator-plus/static/css/main.a58360e7.chunk.css",
-    "main.js": "/transliterator-plus/static/js/main.cd1c884a.chunk.js",
-    "main.js.map": "/transliterator-plus/static/js/main.cd1c884a.chunk.js.map",
+    "main.css": "/transliterator-plus/static/css/main.b03d2ff1.chunk.css",
+    "main.js": "/transliterator-plus/static/js/main.5ff61822.chunk.js",
+    "main.js.map": "/transliterator-plus/static/js/main.5ff61822.chunk.js.map",
     "runtime-main.js": "/transliterator-plus/static/js/runtime-main.18cea1b6.js",
     "runtime-main.js.map": "/transliterator-plus/static/js/runtime-main.18cea1b6.js.map",
     "static/css/2.f2512455.chunk.css": "/transliterator-plus/static/css/2.f2512455.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.8f02750e.chunk.js.map": "/transliterator-plus/static/js/3.8f02750e.chunk.js.map",
     "index.html": "/transliterator-plus/index.html",
     "static/css/2.f2512455.chunk.css.map": "/transliterator-plus/static/css/2.f2512455.chunk.css.map",
-    "static/css/main.a58360e7.chunk.css.map": "/transliterator-plus/static/css/main.a58360e7.chunk.css.map",
+    "static/css/main.b03d2ff1.chunk.css.map": "/transliterator-plus/static/css/main.b03d2ff1.chunk.css.map",
     "static/js/2.b9c73d6c.chunk.js.LICENSE.txt": "/transliterator-plus/static/js/2.b9c73d6c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.18cea1b6.js",
     "static/css/2.f2512455.chunk.css",
     "static/js/2.b9c73d6c.chunk.js",
-    "static/css/main.a58360e7.chunk.css",
-    "static/js/main.cd1c884a.chunk.js"
+    "static/css/main.b03d2ff1.chunk.css",
+    "static/js/main.5ff61822.chunk.js"
   ]
 }
