@@ -1,4 +1,4 @@
-export const LANGUAGES = { 
-    LAT: "LAT", 
-    CYR: "CYR" 
+export enum LANGUAGES { 
+    LAT = "LAT", 
+    CYR = "CYR" 
 };

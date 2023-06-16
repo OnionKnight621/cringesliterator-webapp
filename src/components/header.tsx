@@ -2,7 +2,12 @@ import { Button } from "@mui/material";
 
 import { LANGUAGES } from "../constants";
 
-const Header = ({ language, handleLangChange }) => {
+interface HeaderProps {
+  language: LANGUAGES;
+  handleLangChange: (lang: LANGUAGES) => void
+}
+
+const Header = ({ language, handleLangChange }: HeaderProps) => {
   return (
     <h3>
       {language === LANGUAGES.CYR ? (

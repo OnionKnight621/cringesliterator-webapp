@@ -10,7 +10,7 @@ export function languageType(input: string) {
 
   Object.entries(languages).forEach(([key, value]) => {
     if (value.test(input) == true) {
-      lang = key;
+      lang = key as LANGUAGES;
     }
   });
 

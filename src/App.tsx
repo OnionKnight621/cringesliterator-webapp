@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import transliterate from "cringesliterator";
 import {
   Container,
@@ -36,7 +36,7 @@ const App = () => {
     setOutputData(processedData);
   };
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value: string = e.target.value;
 
     const valToCheck = value.replace(/\s/g, "");
@@ -47,8 +47,8 @@ const App = () => {
     setInputData(value);
   };
 
-  const handleLangChange = (lang: string) => {
-    const value: string = lang;
+  const handleLangChange = (lang: LANGUAGES) => {
+    const value = lang;
     setLanguage(value);
   };
 
