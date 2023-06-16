@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import transliterate from "cringesliterator";
 import {
   Container,
@@ -12,6 +12,7 @@ import "./App.css";
 import Header from "./components/header";
 import { LANGUAGES } from "./constants";
 import { theme } from "./utils/theme";
+import { languageType } from "./utils/langIdentifyer";
 
 const boxStyles = {
   backgroundColor: "#DDA77B",
@@ -37,6 +38,12 @@ const App = () => {
 
   const handleInputChange = (e: any) => {
     const value: string = e.target.value;
+
+    const valToCheck = value.replace(/\s/g, "");
+    if (valToCheck.length <= 3 && valToCheck.length > 0) {
+      setLanguage(languageType(valToCheck));
+    }
+
     setInputData(value);
   };
 
@@ -56,7 +63,6 @@ const App = () => {
       <Container maxWidth="sm">
         <Box sx={boxStyles}>
           <Header language={language} handleLangChange={handleLangChange} />
-
           <TextField
             id="input-b"
             label="Input"
@@ -70,7 +76,6 @@ const App = () => {
             onChange={handleInputChange}
             onKeyUp={handleKeyPress}
           ></TextField>
-          <br />
           <Button
             type="button"
             variant="contained"
@@ -86,7 +91,6 @@ const App = () => {
           >
             Transliterate
           </Button>
-          <br />
           <TextField
             id="output-b"
             label="Output"
