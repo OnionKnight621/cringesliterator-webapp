@@ -18,8 +18,8 @@ const boxStyles = {
   backgroundColor: "#DDA77B",
   padding: "1rem",
   marginTop: "3rem",
-  border: "3px solid #a99f96",
-  borderRadius: "1rem",
+  border: "4px solid #945D5E",
+  borderRadius: "0.8rem",
 };
 
 const App = () => {
@@ -60,7 +60,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Box sx={boxStyles}>
           <Header language={language} handleLangChange={handleLangChange} />
           <TextField
