@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, KeyboardEvent } from "react";
 import transliterate from "cringesliterator";
 import {
   Container,
@@ -52,7 +52,7 @@ const App = () => {
     setLanguage(value);
   };
 
-  const handleKeyPress = (e: any) => {
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" || e.key === " ") {
       handleActionClick();
     }
@@ -94,17 +94,13 @@ const App = () => {
           <TextField
             id="output-b"
             label="Output"
-            placeholder="Get smth"
             multiline
             fullWidth
             variant="filled"
             disabled
-            focused={true}
             value={outputData}
             maxRows={8}
             minRows={3}
-            onChange={handleInputChange}
-            onKeyUp={handleKeyPress}
           ></TextField>
         </Box>
       </Container>
