@@ -1,12 +1,12 @@
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import transliterate from "cringesliterator";
 import {
-  Container,
   Button,
   Box,
   ThemeProvider,
   TextField,
   IconButton,
+  Grid,
 } from "@mui/material";
 import { Add } from "@mui/icons-material";
 
@@ -19,7 +19,6 @@ import { languageType } from "./utils/langIdentifyer";
 const boxStyles = {
   backgroundColor: "#DDA77B",
   padding: "1rem",
-  marginTop: "3rem",
   border: "4px solid #945D5E",
   borderRadius: "0.8rem",
 };
@@ -66,58 +65,70 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container maxWidth="md">
-        <Box sx={boxStyles}>
-          <Header language={language} handleLangChange={handleLangChange} />
-          <TextField
-            id="input-b"
-            label="Input"
-            placeholder="Enter smth"
-            multiline
-            fullWidth
-            variant="filled"
-            color="secondary"
-            maxRows={6}
-            minRows={3}
-            onChange={handleInputChange}
-            onKeyUp={handleKeyPress}
-          ></TextField>
-          <Button
-            type="button"
-            variant="contained"
-            color="peach"
-            size="small"
-            id="transliterator-btn"
-            sx={{
-              width: "100%",
-              margin: "0.8rem 0 1rem 0",
-              fontWeight: "bold",
-            }}
-            onClick={handleActionClick}
-          >
-            Transliterate
-          </Button>
-          <TextField
-            id="output-b"
-            label="Output"
-            multiline
-            fullWidth
-            variant="filled"
-            disabled
-            value={outputData}
-            maxRows={8}
-            minRows={3}
-          ></TextField>
-          {outputData && (
-            <IconButton
-              sx={{ float: "right", bottom: "2.5rem" }}
-              onClick={handleAddButton}
+      <Grid
+        container
+        spacing={2}
+        sx={{ marginTop: "2rem", justifyContent: "center" }}
+      >
+        <Grid item xs={9} sm={9} md={3}>
+          {" "}
+        </Grid>
+        <Grid item xs={9} sm={9} md={6}>
+          <Box sx={boxStyles}>
+            <Header language={language} handleLangChange={handleLangChange} />
+            <TextField
+              id="input-b"
+              label="Input"
+              placeholder="Enter smth"
+              multiline
+              fullWidth
+              variant="filled"
+              color="secondary"
+              maxRows={6}
+              minRows={3}
+              onChange={handleInputChange}
+              onKeyUp={handleKeyPress}
+            ></TextField>
+            <Button
+              type="button"
+              variant="contained"
+              color="peach"
+              size="small"
+              id="transliterator-btn"
+              sx={{
+                width: "100%",
+                margin: "0.8rem 0 1rem 0",
+                fontWeight: "bold",
+              }}
+              onClick={handleActionClick}
             >
-              <Add />
-            </IconButton>
-          )}
-        </Box>
-      </Container>
+              Transliterate
+            </Button>
+            <TextField
+              id="output-b"
+              label="Output"
+              multiline
+              fullWidth
+              variant="filled"
+              disabled
+              value={outputData}
+              maxRows={8}
+              minRows={3}
+            ></TextField>
+            {outputData && (
+              <IconButton
+                sx={{ float: "right", bottom: "2.5rem" }}
+                onClick={handleAddButton}
+              >
+                <Add />
+              </IconButton>
+            )}
+          </Box>
+        </Grid>
+        <Grid item xs={9} sm={9} md={3}>
+          {/* <Box sx={boxStyles}>smth</Box> */}
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
 };
