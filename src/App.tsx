@@ -6,7 +6,9 @@ import {
   Box,
   ThemeProvider,
   TextField,
+  IconButton,
 } from "@mui/material";
+import { Add } from "@mui/icons-material";
 
 import "./App.css";
 import Header from "./components/header";
@@ -58,6 +60,10 @@ const App = () => {
     }
   };
 
+  const handleAddButton = () => {
+    console.log(123123);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="md">
@@ -102,6 +108,14 @@ const App = () => {
             maxRows={8}
             minRows={3}
           ></TextField>
+          {outputData && (
+            <IconButton
+              sx={{ float: "right", bottom: "2.5rem" }}
+              onClick={handleAddButton}
+            >
+              <Add />
+            </IconButton>
+          )}
         </Box>
       </Container>
     </ThemeProvider>
