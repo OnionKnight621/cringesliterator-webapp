@@ -96,7 +96,15 @@ const App = () => {
       >
         <Grid item xs={11} sm={10} md={3}></Grid>
         <Grid item xs={11} sm={10} md={6}>
-          <Box sx={boxStyles}>
+          <Box
+            sx={{
+              ...boxStyles,
+              [theme.breakpoints.up("md")]: {
+                position: "sticky",
+                top: "1rem",
+              },
+            }}
+          >
             <Header language={language} handleLangChange={handleLangChange} />
             <TextField
               id="input-b"
@@ -147,7 +155,7 @@ const App = () => {
             )}
           </Box>
         </Grid>
-        <Grid item xs={11} sm={10} md={3} >
+        <Grid item xs={11} sm={10} md={3}>
           {memories.map((item) => (
             <MemoryBox
               key={item.id}
