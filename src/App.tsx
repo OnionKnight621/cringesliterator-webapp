@@ -7,22 +7,26 @@ import {
   TextField,
   IconButton,
   Grid,
+  SxProps,
+  Theme,
 } from "@mui/material";
-import { Add, Delete, CopyAll } from "@mui/icons-material";
+import { Add } from "@mui/icons-material";
 
 import "./App.css";
-import Header from "./components/header";
+import Header from "./components/Header";
 import { LANGUAGES } from "./constants";
 import { theme } from "./utils/theme";
 import { languageType } from "./utils/langIdentifyer";
 import { deleteItem, getAllItems, storeItem } from "./utils/localStorage";
+import MemoryBox from "./components/MemoryBox";
+import { saveToClipboard } from "./utils/clipboard";
 
 export type memory = {
   id: string;
   text: string;
 };
 
-const boxStyles = {
+const boxStyles: SxProps<Theme> = {
   backgroundColor: "#DDA77B",
   padding: "1rem",
   border: "4px solid #945D5E",
@@ -46,10 +50,6 @@ const App = () => {
 
     saveToClipboard(processedData);
     setOutputData(processedData);
-  };
-
-  const saveToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -87,10 +87,6 @@ const App = () => {
     saveMemory(outputData);
   };
 
-  const handleRemoveButton = (id: string) => {
-    removeMemory(id);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <Grid
@@ -98,10 +94,8 @@ const App = () => {
         spacing={2}
         sx={{ marginTop: "2rem", justifyContent: "center" }}
       >
-        <Grid item xs={9} sm={9} md={3}>
-          {" "}
-        </Grid>
-        <Grid item xs={9} sm={9} md={6}>
+        <Grid item xs={11} sm={10} md={3}></Grid>
+        <Grid item xs={11} sm={10} md={6}>
           <Box sx={boxStyles}>
             <Header language={language} handleLangChange={handleLangChange} />
             <TextField
@@ -153,21 +147,14 @@ const App = () => {
             )}
           </Box>
         </Grid>
-        <Grid item xs={9} sm={9} md={3}>
+        <Grid item xs={11} sm={10} md={3} >
           {memories.map((item) => (
-            <Box key={item.id} sx={{ ...boxStyles, marginBottom: "1rem" }}>
-              <div style={{ display: "flex" }}>
-                {item.text}
-                <div>
-                  <IconButton onClick={() => saveToClipboard(item.text)}>
-                    <CopyAll />
-                  </IconButton>
-                  <IconButton onClick={() => handleRemoveButton(item.id)}>
-                    <Delete />
-                  </IconButton>
-                </div>
-              </div>
-            </Box>
+            <MemoryBox
+              key={item.id}
+              item={item}
+              boxStyles={boxStyles}
+              removeMemory={removeMemory}
+            />
           ))}
         </Grid>
       </Grid>
