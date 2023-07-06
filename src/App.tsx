@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import transliterate from "cringesliterator";
 import {
   Button,
@@ -15,6 +15,12 @@ import Header from "./components/header";
 import { LANGUAGES } from "./constants";
 import { theme } from "./utils/theme";
 import { languageType } from "./utils/langIdentifyer";
+import { deleteItem, getAllItems, storeItem } from "./utils/localStorage";
+
+export type memory = {
+  id: string;
+  text: string;
+};
 
 const boxStyles = {
   backgroundColor: "#DDA77B",
@@ -27,13 +33,11 @@ const App = () => {
   const [language, setLanguage] = useState(LANGUAGES.CYR);
   const [inputData, setInputData] = useState("");
   const [outputData, setOutputData] = useState("");
-  const [memories, setMemories] = useState([
-    {
-      id: "1",
-      text: "something alkjhsgdiuyt qiuhdgoiuqgoi7 aoiushdpiuyaqopi qilugdo7iqg kjuh qiuygdoloqyg iugh",
-    },
-    { id: "2", text: "eqwqeeqw щгшцункгщ" },
-  ]);
+  const [memories, setMemories] = useState<[] | memory[]>([]);
+
+  useEffect(() => {
+    setMemories(getAllItems());
+  }, []);
 
   const handleActionClick = () => {
     let processedData: string;
@@ -69,14 +73,14 @@ const App = () => {
   };
 
   const saveMemory = (text: string) => {
-    setMemories((items) => [
-      ...items,
-      { id: new Date().getTime().toString(), text },
-    ]);
+    const id = new Date().getTime().toString();
+    setMemories((items) => [...items, { id, text }]);
+    storeItem({ id, text });
   };
 
   const removeMemory = (id: string) => {
     setMemories((items) => items.filter((item) => item.id !== id));
+    deleteItem(id);
   };
 
   const handleAddButton = () => {
@@ -152,7 +156,7 @@ const App = () => {
         <Grid item xs={9} sm={9} md={3}>
           {memories.map((item) => (
             <Box key={item.id} sx={{ ...boxStyles, marginBottom: "1rem" }}>
-              <div style={{ display: 'flex'}}>
+              <div style={{ display: "flex" }}>
                 {item.text}
                 <div>
                   <IconButton onClick={() => saveToClipboard(item.text)}>
