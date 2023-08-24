@@ -34,6 +34,7 @@ const Header = ({ language, handleLangChange }: HeaderProps) => {
         </Button>
       )}{" "}
       to CR
+      <img id="maxwell" src="/maxwell-cat.gif" />
     </h3>
   );
 };

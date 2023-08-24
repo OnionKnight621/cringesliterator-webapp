@@ -1,6 +1,4 @@
-textarea {
-  border-radius: 5px;
-  resize: vertical;
-  padding: 5px;
-  width: 98%;
+#maxwell {
+    width: 1.5rem;
+    float: right;
 }
