@@ -1,5 +1,5 @@
-import { useState, ChangeEvent, useEffect } from "react";
-import transliterate from "cringesliterator";
+import { useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
+import { transliterate } from "cringesliterator";
 import {
   Button,
   Box,
@@ -43,12 +43,12 @@ const App = () => {
     setMemories(getAllItems());
   }, []);
 
-  const handleActionClick = () => {
+  const handleActionClick = (clipboardSave = true) => {
     let processedData: string;
 
     processedData = transliterate(inputData, language);
 
-    saveToClipboard(processedData);
+    if (clipboardSave) saveToClipboard(processedData);
     setOutputData(processedData);
   };
 
@@ -56,7 +56,7 @@ const App = () => {
     const value: string = e.target.value;
 
     const valToCheck = value.replace(/\s/g, "");
-    if (valToCheck.length <= 3 && valToCheck.length > 0) {
+    if (valToCheck.length <= 10 && valToCheck.length > 0) {
       setLanguage(languageType(valToCheck));
     }
 
@@ -68,8 +68,12 @@ const App = () => {
     setLanguage(value);
   };
 
-  const handleKeyPress = () => {
-    handleActionClick();
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.keyCode === 13) {
+      return handleActionClick(true);
+    }
+
+    return handleActionClick(false);
   };
 
   const saveMemory = (text: string) => {
@@ -108,7 +112,7 @@ const App = () => {
             <Header language={language} handleLangChange={handleLangChange} />
             <TextField
               id="input-b"
-              label="Input"
+              label="Input (normal or already cringesliterated)"
               placeholder="Enter smth"
               multiline
               fullWidth
@@ -130,9 +134,9 @@ const App = () => {
                 margin: "0.8rem 0 1rem 0",
                 fontWeight: "bold",
               }}
-              onClick={handleActionClick}
+              onClick={() => handleActionClick()}
             >
-              Transliterate
+              Transliterate / Copy to clipboard &#91; enter &#93;
             </Button>
             <TextField
               id="output-b"
