@@ -1,4 +1,4 @@
-// have to duplicate since TS complains about exported enum LANGUAGES from cringesliterator 
+// have to duplicate since TS complains about exported enum LANGUAGES from cringesliterator
 export enum LANGUAGES {
   LAT = "LAT",
   CYR = "CYR",

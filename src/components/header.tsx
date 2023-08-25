@@ -1,8 +1,6 @@
 import { LANGUAGES } from "../constants";
 import LanguageBtn from "./LanguageBtn";
 
-import { Button } from "@mui/material";
-
 type handleLangChange = (lang: LANGUAGES) => void;
 
 interface HeaderProps {
