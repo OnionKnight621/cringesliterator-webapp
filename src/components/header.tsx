@@ -1,5 +1,6 @@
 import { LANGUAGES } from "../constants";
 import LanguageBtn from "./LanguageBtn";
+import { path } from "../constants";
 
 type handleLangChange = (lang: LANGUAGES) => void;
 
@@ -56,7 +57,7 @@ const Header = ({ language, handleLangChange }: HeaderProps) => {
         {buttonSwitch(language, handleLangChange)}
         <img
           id="maxwell"
-          src="/maxwell-cat.gif"
+          src={path+"maxwell-cat.gif"}
           style={{ paddingTop: "0.5rem" }}
         />
       </h3>
