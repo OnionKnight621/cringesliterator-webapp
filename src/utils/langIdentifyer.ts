@@ -6,10 +6,10 @@ import { LANGUAGES } from "../constants";
 
 export function languageType(input: string) {
   const languages = {
-    LAT: /^[a-z]+$/i,
-    CYR: /^[а-яіїьєґ]+$/i,
-    LAT_CRI: new RegExp(`^[${LAT_CRI.join("")}]+$`, "i"),
-    CYR_CRI: new RegExp(`^[${CYR_CRI.join("")}]+$`, "i"),
+    LAT: /^[a-z]+$/gi,
+    CYR: /^[а-яіїьєґ]+$/gi,
+    LAT_CRI: new RegExp(`^[${LAT_CRI.join("")}]+$`, "gi"),
+    CYR_CRI: new RegExp(`^[${CYR_CRI.join("")}]+$`, "gi"),
   };
 
   let lang = LANGUAGES.CYR;

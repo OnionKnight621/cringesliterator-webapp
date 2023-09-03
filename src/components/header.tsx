@@ -65,6 +65,7 @@ const Header = ({ language, handleLangChange }: HeaderProps) => {
           src={path+"maxwell-cat.gif"}
           style={{ paddingTop: "0.5rem" }}
           onClick={handleBoop}
+          title="boop"
         />
       </h3>
     </div>

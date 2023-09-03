@@ -55,8 +55,8 @@ const App = () => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value: string = e.target.value;
 
-    const valToCheck = value.replace(/\s/g, "");
-    if (valToCheck.length <= 10 && valToCheck.length > 0) {
+    const valToCheck = value.replace(/[\s\t\n\W]/gi, "");
+    if (valToCheck.length <= 512 && valToCheck.length > 0) {
       setLanguage(languageType(valToCheck));
     }
 
