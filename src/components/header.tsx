@@ -1,6 +1,7 @@
 import { LANGUAGES } from "../constants";
 import LanguageBtn from "./LanguageBtn";
 import { path } from "../constants";
+import { notePlay } from "../utils/soundMaker";
 
 type handleLangChange = (lang: LANGUAGES) => void;
 
@@ -51,6 +52,10 @@ const buttonSwitch = (
 };
 
 const Header = ({ language, handleLangChange }: HeaderProps) => {
+  const handleBoop = () => {
+    notePlay();
+  }
+
   return (
     <div>
       <h3>
@@ -59,6 +64,7 @@ const Header = ({ language, handleLangChange }: HeaderProps) => {
           id="maxwell"
           src={path+"maxwell-cat.gif"}
           style={{ paddingTop: "0.5rem" }}
+          onClick={handleBoop}
         />
       </h3>
     </div>
