@@ -14,7 +14,13 @@ import { Add } from "@mui/icons-material";
 
 import "./App.css";
 import Header from "./components/Header";
-import { CYR_ALPHABET, CYR_CRI_ALPHABET, LANGUAGES, LAT_ALPHABET, LAT_CRI_ALPHABET } from "./constants";
+import {
+  CYR_ALPHABET,
+  CYR_CRI_ALPHABET,
+  LANGUAGES,
+  LAT_ALPHABET,
+  LAT_CRI_ALPHABET,
+} from "./constants";
 import { theme } from "./utils/theme";
 import { languageType } from "./utils/langIdentifyer";
 import { deleteItem, getAllItems, storeItem } from "./utils/localStorage";
@@ -54,7 +60,10 @@ const App = () => {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value: string = e.target.value;
-    const regex = new RegExp(`[^${CYR_ALPHABET}${LAT_ALPHABET}${CYR_CRI_ALPHABET}${LAT_CRI_ALPHABET}]+`, "gi");
+    const regex = new RegExp(
+      `[^${CYR_ALPHABET}${LAT_ALPHABET}${CYR_CRI_ALPHABET}${LAT_CRI_ALPHABET}]+`,
+      "gi"
+    );
 
     const valToCheck = value.replace(regex, "");
     if (valToCheck.length > 0) {
@@ -110,7 +119,11 @@ const App = () => {
               },
             }}
           >
-            <Header language={language} handleLangChange={handleLangChange} />
+            <Header
+              language={language}
+              handleLangChange={handleLangChange}
+              inputLength={inputData.length}
+            />
             <TextField
               id="input-b"
               label="Input (normal or already cringesliterated)"

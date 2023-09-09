@@ -8,6 +8,7 @@ type handleLangChange = (lang: LANGUAGES) => void;
 interface HeaderProps {
   language: LANGUAGES;
   handleLangChange: handleLangChange;
+  inputLength: number;
 }
 
 const buttonSwitch = (
@@ -51,10 +52,15 @@ const buttonSwitch = (
   }
 };
 
-const Header = ({ language, handleLangChange }: HeaderProps) => {
+const Header = ({
+  language,
+  handleLangChange,
+  inputLength = 1,
+}: HeaderProps) => {
   const handleBoop = () => {
-    notePlay();
-  }
+    const noteFrequency = inputLength * 5 + 500;
+    notePlay(noteFrequency);
+  };
 
   return (
     <div>
@@ -62,7 +68,7 @@ const Header = ({ language, handleLangChange }: HeaderProps) => {
         {buttonSwitch(language, handleLangChange)}
         <img
           id="maxwell"
-          src={path+"maxwell-cat.gif"}
+          src={path + "maxwell-cat.gif"}
           style={{ paddingTop: "0.5rem" }}
           onClick={handleBoop}
           title="boop"
