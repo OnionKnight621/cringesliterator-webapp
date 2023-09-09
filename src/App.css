@@ -2,3 +2,10 @@
   width: 1.5rem;
   float: right;
 }
+
+#maxwell:hover {
+  width: 1.5rem;
+  float: right;
+  transform: rotate(360deg);
+  transition: 0.5s;
+}

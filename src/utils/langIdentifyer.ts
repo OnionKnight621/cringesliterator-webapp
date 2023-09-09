@@ -1,4 +1,10 @@
-import { CYR_ALPHABET, CYR_CRI_ALPHABET, LANGUAGES, LAT_ALPHABET, LAT_CRI_ALPHABET } from "../constants";
+import {
+  CYR_ALPHABET,
+  CYR_CRI_ALPHABET,
+  LANGUAGES,
+  LAT_ALPHABET,
+  LAT_CRI_ALPHABET,
+} from "../constants";
 
 export function languageType(input: string) {
   const languages = {
