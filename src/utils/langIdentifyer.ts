@@ -1,15 +1,11 @@
-import { constants } from "cringesliterator";
-
-const { CYR_CRI, LAT_CRI } = constants;
-
-import { LANGUAGES } from "../constants";
+import { CYR_ALPHABET, CYR_CRI_ALPHABET, LANGUAGES, LAT_ALPHABET, LAT_CRI_ALPHABET } from "../constants";
 
 export function languageType(input: string) {
   const languages = {
-    LAT: /^[a-z]+$/gi,
-    CYR: /^[а-яіїьєґ]+$/gi,
-    LAT_CRI: new RegExp(`^[${LAT_CRI.join("")}]+$`, "gi"),
-    CYR_CRI: new RegExp(`^[${CYR_CRI.join("")}]+$`, "gi"),
+    LAT: new RegExp(`^[${LAT_ALPHABET}]+$`, "gi"),
+    CYR: new RegExp(`^[${CYR_ALPHABET}]+$`, "gi"),
+    LAT_CRI: new RegExp(`^[${LAT_CRI_ALPHABET}]+$`, "gi"),
+    CYR_CRI: new RegExp(`^[${CYR_CRI_ALPHABET}]+$`, "gi"),
   };
 
   let lang = LANGUAGES.CYR;

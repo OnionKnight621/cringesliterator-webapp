@@ -14,7 +14,7 @@ import { Add } from "@mui/icons-material";
 
 import "./App.css";
 import Header from "./components/Header";
-import { LANGUAGES } from "./constants";
+import { CYR_ALPHABET, CYR_CRI_ALPHABET, LANGUAGES, LAT_ALPHABET, LAT_CRI_ALPHABET } from "./constants";
 import { theme } from "./utils/theme";
 import { languageType } from "./utils/langIdentifyer";
 import { deleteItem, getAllItems, storeItem } from "./utils/localStorage";
@@ -54,9 +54,10 @@ const App = () => {
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value: string = e.target.value;
+    const regex = new RegExp(`[^${CYR_ALPHABET}${LAT_ALPHABET}${CYR_CRI_ALPHABET}${LAT_CRI_ALPHABET}]+`, "gi");
 
-    const valToCheck = value.replace(/[\s\t\n\W]/gi, "");
-    if (valToCheck.length <= 512 && valToCheck.length > 0) {
+    const valToCheck = value.replace(regex, "");
+    if (valToCheck.length > 0) {
       setLanguage(languageType(valToCheck));
     }
 
