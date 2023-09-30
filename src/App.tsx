@@ -171,6 +171,7 @@ const App = () => {
                 <Add />
               </IconButton>
             )}
+            <span>Symbols: {outputData.length < 500 ? outputData.length : <span style={{color: 'red'}}>{outputData.length}</span> }</span>
           </Box>
         </Grid>
         <Grid item xs={11} sm={10} md={3}>
